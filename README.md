@@ -3,7 +3,7 @@
 - 문서에 첨부된 여러 파일을 `doc_management` 테이블에서 관리
 
 ## 기능
-- 게시글 생성/수정/조회/삭제/검색
+- 게시물 생성/수정/조회/삭제/검색
 - 첨부 파일 업로드
 - 태그
 
@@ -13,6 +13,20 @@
 - 통합 파일 : BRD-FILE-UUID
 
 ※ 실무에서는 메뉴별로 게시판 테이블을 분리하고 문서 번호를 부여하여 관리했지만, 이번 프로젝트에서는 게시판 유형별로 테이블을 분리하지 않고 문서 번호를 통해 게시판 유형을 구분합니다.
+
+# API URL
+[API 명세서 참고](https://app.notion.com/p/4222f0d54a3480df832ec5802fc3bbda?v=4222f0d54a34809a84f8000ce84036a1&source=copy_link)
+
+| 기능        | Method | URL                                                                                    | Req Content-Type    |
+|-----------|--------|----------------------------------------------------------------------------------------|---------------------|
+| 게시물 생성    | POST   | /api/boards                                                                            | multipart/form-data |
+| 게시물 수정    | PUT    | /api/boards/{boardId}                                                                  | multipart/form-data |
+| 게시물 삭제    | PATCH  | /api/boards/{boardId}                                                                  | application/json    |
+| 게시물 다건 조회 | GET    | /api/boards                                                                            | -                   |
+| 게시물 단건 조회 | GET    | /api/boards/{boardId}                                                                  | -                   |
+| 게시물 검색    | GET    | /api/boards/search?<br>title=”제목”&<br>startDate=2026-11-01&<br>endDate=2026-11-30&<br>tag=”태그” | -                   |
+
+
 
 # PostgreSQL DDL
 ```
