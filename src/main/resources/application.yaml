@@ -7,3 +7,13 @@ spring:
     url: jdbc:postgresql://localhost:5432/mybatis_board
     username: postgres
     password: 1234
+
+  cloud:
+    aws:
+      region:
+        static: ${AWS_REGION}
+      stack:
+        auto: false
+      credentials:
+        access-key: ${AWS_ACCESS_KEY}
+        secret-key: ${AWS_SECRET_KEY}
